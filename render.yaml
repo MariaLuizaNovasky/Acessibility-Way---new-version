@@ -1,0 +1,20 @@
+# Blueprint do Render: New > Blueprint > selecione este repositório.
+# Os valores marcados com "sync: false" são pedidos no painel do Render na criação.
+services:
+  - type: web
+    name: accessibility-way
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_BUCKET
+        value: documentos-pedestres

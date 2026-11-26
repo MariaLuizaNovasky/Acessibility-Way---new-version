@@ -1,0 +1,143 @@
+﻿@model CadastroViewModel
+@{
+    ViewData["Title"] = "Cadastro";
+    var ufs = new (string Sigla, string Nome)[]
+    {
+        ("AC", "Acre"), ("AL", "Alagoas"), ("AP", "Amapá"), ("AM", "Amazonas"), ("BA", "Bahia"),
+        ("CE", "Ceará"), ("DF", "Distrito Federal"), ("ES", "Espírito Santo"), ("GO", "Goiás"),
+        ("MA", "Maranhão"), ("MT", "Mato Grosso"), ("MS", "Mato Grosso do Sul"), ("MG", "Minas Gerais"),
+        ("PA", "Pará"), ("PB", "Paraíba"), ("PR", "Paraná"), ("PE", "Pernambuco"), ("PI", "Piauí"),
+        ("RJ", "Rio de Janeiro"), ("RN", "Rio Grande do Norte"), ("RS", "Rio Grande do Sul"),
+        ("RO", "Rondônia"), ("RR", "Roraima"), ("SC", "Santa Catarina"), ("SP", "São Paulo"),
+        ("SE", "Sergipe"), ("TO", "Tocantins"),
+    };
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Cadastro.css" asp-append-version="true">
+}
+
+<div class="Corpo">
+    <div class="col-md-12 pt-5 pb-2 ourTeam-hedding text-center">
+        <h1>CADASTRO DE PEDESTRES USUÁRIOS DO CARTÃO</h1>
+        <p>
+            Pedestres que possuem alguma dificuldade na locomoção, tem direito a utilizar um cartão para abrir o semáforo com maior rapidez, que permanece aberto por maior tempo. Para ter acesso a este cartão é necessário preencher o cadastro abaixo com os dados corretos!
+        </p>
+    </div>
+
+    @if (TempData["CadastroOk"] is string sucesso)
+    {
+        <div class="alert alert-success" role="status">@sucesso</div>
+    }
+
+    <form class="inputBox" asp-action="Cadastro" method="post" enctype="multipart/form-data" novalidate>
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label asp-for="Nome">Nome Completo:</label>
+                <input asp-for="Nome" class="form-control" id="inputNome" placeholder="Insira seu Nome Completo" autocomplete="name" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="Cpf">CPF:</label>
+                <input asp-for="Cpf" class="form-control" id="inputCpf" placeholder="xxx.xxx.xxx-xx" inputmode="numeric" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group1 col-md-3">
+                <label asp-for="DataNascimento">Data de Nascimento:</label>
+                <input asp-for="DataNascimento" type="date" class="form-control" id="inputDataNasc" autocomplete="bday" />
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group1 col-md-2">
+                <label asp-for="Telefone">Telefone:</label>
+                <input asp-for="Telefone" type="tel" class="form-control" id="inputTel" placeholder="(xx) xxxxx-xxxx" autocomplete="tel" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group1 col-md-2">
+                <label asp-for="Cep">CEP:</label>
+                <input asp-for="Cep" class="form-control" id="inputCep" placeholder="Insira seu CEP" inputmode="numeric" autocomplete="postal-code" />
+                <span asp-validation-for="Cep" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="Uf">UF:</label>
+                <select asp-for="Uf" class="form-control" id="inputUf">
+                    <option value="">Selecione:</option>
+                    @foreach (var uf in ufs)
+                    {
+                        <option value="@uf.Sigla">@uf.Nome</option>
+                    }
+                </select>
+                <span asp-validation-for="Uf" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Cidade">Cidade:</label>
+                <input asp-for="Cidade" class="form-control" id="inputCidade" placeholder="Informe o nome da Cidade" />
+                <span asp-validation-for="Cidade" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="Bairro">Bairro:</label>
+                <input asp-for="Bairro" class="form-control" id="inputBairro" placeholder="Informe o nome do Bairro" />
+                <span asp-validation-for="Bairro" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-5">
+                <label asp-for="Rua">Rua:</label>
+                <input asp-for="Rua" class="form-control" id="inputRua" placeholder="Informe o nome da Rua" />
+                <span asp-validation-for="Rua" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-1">
+                <label asp-for="NumeroCasa">Nº:</label>
+                <input asp-for="NumeroCasa" class="form-control" id="inputNumCasa" />
+                <span asp-validation-for="NumeroCasa" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <label asp-for="Complemento">Complemento:</label>
+                <input asp-for="Complemento" class="form-control" id="inputComp" />
+                <span asp-validation-for="Complemento" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="NomeCondicao">Condição:</label>
+                <input asp-for="NomeCondicao" class="form-control" id="inputCond" placeholder="Informe sua Condição" />
+                <span asp-validation-for="NomeCondicao" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <label asp-for="TempoCondicao">Tempo da Condição:</label>
+                <select asp-for="TempoCondicao" class="form-control" id="inputTempoCond">
+                    <option value="">Selecione:</option>
+                    <option value="permanente">Permanente</option>
+                    <option value="temporaria">Temporária</option>
+                </select>
+                <span asp-validation-for="TempoCondicao" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="DocumentoMedico">Documento Médico:</label>
+                <input asp-for="DocumentoMedico" type="file" class="form-control" id="inputDocMedico" accept=".pdf,.jpg,.jpeg,.png,.webp" />
+                <small class="form-text">PDF ou imagem, até 5 MB.</small>
+                <span asp-validation-for="DocumentoMedico" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="Foto">Foto:</label>
+                <input asp-for="Foto" type="file" class="form-control" id="inputFoto" accept=".jpg,.jpeg,.png,.webp" />
+                <small class="form-text">JPG, PNG ou WEBP, até 5 MB.</small>
+                <span asp-validation-for="Foto" class="text-danger"></span>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-success btn-lg">Salvar</button>
+        <button type="reset" class="btn btn-outline-danger btn-lg">Excluir</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/js/jquery.mask.min.js"></script>
+    <script src="~/js/maskRegistration/userRegistration.js" asp-append-version="true"></script>
+}

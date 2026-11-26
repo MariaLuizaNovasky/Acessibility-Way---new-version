@@ -1,0 +1,136 @@
+﻿body 
+{
+    background: #303739;
+    margin-bottom: 60px;
+}
+
+.ourTeam-hedding p 
+{
+    color: white;
+    font-size: 18px;
+}
+
+.ourTeam-hedding strong 
+{
+    color: black;
+}
+
+.ourTeam-hedding 
+{
+    margin-bottom: 35px;
+}
+
+.ourTeam-hedding h1 
+{
+    font-size: 50px;
+    font-weight: bold;
+    color: #4FCB03;
+}
+
+.ourTeam-box 
+{
+    border-radius: 2px;
+    border-top: 10px solid black;
+    margin: 10px;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.section1 
+{
+    padding: 15px 0px 30px 0px;
+}
+
+.section1 img 
+{
+    border-radius: 90%;
+    height: 140px;
+    width: 140px;
+}
+
+.section2 p 
+{
+    font-weight: bold;
+    color: black;
+    letter-spacing: 2px;
+}
+
+.section2 span 
+{
+    color: black;
+}
+
+.section3 
+{
+    background-color: black;
+    position:center;
+}
+
+.section3 i 
+{
+    color: #ffffff !important;
+    padding: 6px;
+    font-size: 20px;
+}
+
+.section-info 
+{
+    border-top: 8px solid #4FCB03;
+}
+
+.section-info p 
+{
+    color: black;
+}
+
+.section-info .section3 
+{
+    background-color: #4FCB03;
+}
+
+.section-danger 
+{
+    border-top: 8px solid black;
+}
+
+.section-danger p 
+{
+    color: black;
+}
+
+.section-danger .section3 
+{
+    background-color: black;
+}
+.fa-linkedin:before 
+{
+    margin-right: 5px;
+    font-size: 1.8em;
+    color: #303739;
+}
+a:link
+{
+    text-decoration: none;
+}
+.fa-github:before 
+{
+    font-size: 1.8em;
+    color: #303739;
+}
+div.container-fluid 
+{
+    background-image: linear-gradient(to right, #4FCB03, #096D1F);
+}
+div.container 
+{
+    color: black;
+}
+
+footer 
+{
+    background-image: linear-gradient(to right, #4FCB03, #096D1F);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: block;
+}
